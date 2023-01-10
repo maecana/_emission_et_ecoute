@@ -26,6 +26,7 @@ Listed below are the technologies used to make this app possible
 - python3
 - virtualenv
 - Django
+- channels["daphne"]
 
 
 ## Activate Virtual Environment
