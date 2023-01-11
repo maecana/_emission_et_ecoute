@@ -35,15 +35,23 @@ class EmissionConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         string_data = json.loads(text_data)
         message = string_data['message']
+        username = string_data['username']
+
+        data = {
+            'type': 'message_received',
+            'message': message,
+            'username': username
+        }
 
         await self.channel_layer.group_send(
             self.group_space,
-            {'type': 'message_received', 'message': message}
+            data
         )
     
     
     async def message_received(self, event):
         message = event['message']
+        username = event['username']
 
-        await self.send(text_data=json.dumps({'message': message}))
+        await self.send(text_data=json.dumps({'message': message, 'username': username}))
 
