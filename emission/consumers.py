@@ -43,10 +43,7 @@ class EmissionConsumer(AsyncWebsocketConsumer):
             'username': username
         }
 
-        await self.channel_layer.group_send(
-            self.group_space,
-            data
-        )
+        await self.channel_layer.group_send(self.group_space, data)
     
     
     async def message_received(self, event):
