@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # Internal Applications
     "emission",
+    "home",
 ]
 
 MIDDLEWARE = [
