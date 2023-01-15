@@ -29,7 +29,7 @@
       document.querySelector("#send").onclick = (e) => {
         const input_message_DOM = document.querySelector("#input_message");
         let message = input_message_DOM.value;
-        console.log("message: ", message);
+        
         emissionSocket.send(JSON.stringify({
           'username': username,
           'message': message,
@@ -42,7 +42,7 @@
 
       emissionSocket.onmessage = (e) => {
         const data = JSON.parse(e.data);
-        console.log(data);
+        
         document.querySelector('#ecoute').value += `${data.username}: ${data.message}\n`;
       };
     </script>
